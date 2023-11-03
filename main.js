@@ -1,50 +1,46 @@
-// Initialize Phaser
-const gameConfig = {
-    type: Phaser.AUTO,
-    width: 1000, // Adjust the width as needed for your game
-    height: 800, // Adjust the height as needed for your game
-    scene: {
-        preload: preload,
-        create: create,
-        update: update
-    }
+// Get the canvas and its context
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+// Define game objects
+const player = {
+    x: canvas.width / 2,
+    y: canvas.height - 30,
+    width: 30,
+    height: 30,
+    speed: 5,
 };
 
-const game = new Phaser.Game(gameConfig);
+// Load game images
+const backgroundImg = new Image();
+backgroundImg.src = "https://github.com/chasecraft88/Legendary/blob/2f031cc5b91efb878d1a1d3501a103e35bb5d573/assets/Img10.jpg";
 
-let player;
+const playerImg = new Image();
+playerImg.src = "https://github.com/chasecraft88/Legendary/blob/2f031cc5b91efb878d1a1d3501a103e35bb5d573/assets/Img2.png";
 
-function preload() {
-    // Preload game assets
-    this.load.image('background', 'https://github.com/chasecraft88/Legendary/blob/2f031cc5b91efb878d1a1d3501a103e35bb5d573/assets/Img10.jpg');
-    this.load.image('player', 'https://github.com/chasecraft88/Legendary/blob/2f031cc5b91efb878d1a1d3501a103e35bb5d573/assets/Img2.png');
-}
+// Game loop
+function gameLoop() {
+    requestAnimationFrame(gameLoop);
 
-function create() {
-    // Create game objects
-    this.add.image(400, 300, 'background'); // Display the background image
-    player = this.physics.add.sprite(400, 300, 'player'); // Create a player sprite
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Set up physics
-    this.physics.world.setBounds(0, 0, 800, 600);
-    player.setCollideWorldBounds(true);
+    // Draw the background
+    ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
 
-    // Enable touch input for player movement
-    this.input.on('pointerdown', function (pointer) {
-        // Move the player sprite to the pointer's position
-        this.physics.moveTo(player, pointer.x, pointer.y, 200);
-    }, this);
-}
-
-function update() {
-    // Implement your game logic and behavior in the update function
-
-    // Example: Rotate the player sprite
-    player.angle += 1;
-
-    // Example: Check for game over conditions
-    if (player.angle >= 360) {
-        // Reset the player's rotation
-        player.angle = 0;
+    // Move the player
+    if (rightPressed && player.x < canvas.width - player.width) {
+        player.x += player.speed;
     }
+    if (leftPressed && player.x > 0) {
+        player.x -= player.speed;
+    }
+
+    // Draw the player
+    ctx.drawImage(playerImg, player.x, player.y, player.width, player.height);
 }
+
+// Handle keyboard input (same as before)
+
+// Start the game loop
+gameLoop();
