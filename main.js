@@ -1,8 +1,8 @@
 // Initialize Phaser
 const gameConfig = {
     type: Phaser.AUTO,
-    width: 800, // Adjust the width as needed for your game
-    height: 600, // Adjust the height as needed for your game
+    width: 1000, // Adjust the width as needed for your game
+    height: 800, // Adjust the height as needed for your game
     scene: {
         preload: preload,
         create: create,
