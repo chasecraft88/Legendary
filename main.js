@@ -1,8 +1,8 @@
 // Initialize Phaser
 const gameConfig = {
     type: Phaser.AUTO,
-    width: 800, // Adjust the width as needed for your game
-    height: 600, // Adjust the height as needed for your game
+    width: 1000, // Adjust the width as needed for your game
+    height: 800, // Adjust the height as needed for your game
     scene: {
         preload: preload,
         create: create,
@@ -16,8 +16,8 @@ let player;
 
 function preload() {
     // Preload game assets
-    this.load.image('background', 'assets/Img1.jpg');
-    this.load.image('player', 'assets/Img2.jpg');
+    this.load.image('background','assets/Img10.jpg');
+    this.load.image('player','assets/Img2.jpg');
 }
 
 function create() {
