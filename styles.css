@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#gameContainer {
+  position: relative;
+  width: 80%; /* Adjust to your desired width */
+  max-width: 800px; /* Set a maximum width if needed */
+  height: 80vh; /* Adjust to your desired height */
+  max-height: 600px; /* Set a maximum height if needed */
+  overflow: hidden; /* Clip any content outside the container */
+  background-image: url('assets/IMG_6457.JPG'); /* Replace with your background image URL */
+  background-size: cover;
+  background-attachment: fixed; /* Create the parallax effect */
+  border: 5px solid black; /* Add a black border to the game canvas */
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  border: none;
+}
+
+/* Add more custom styling as needed */
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#gameContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameCanvas {
+  border: 2px solid black;
+}
